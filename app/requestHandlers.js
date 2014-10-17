@@ -68,7 +68,29 @@ function notfound(response) {
 	response.end();
 }
 
+function drive(response) {
+	console.log("Request handler 'drive' was called.");
+	myCar1 = makeCar("Seat");
+	myCar2 = makeCar("Audi");
+	myCar1.honk();
+	myCar2.honk();
+	response.writeHead(200, {"Content-Type": "text/plain"});
+	response.write("Honked and Driven:<br/>");
+	response.end();
+}
+
+var makeCar = function(brand) {
+	var newCar = {};
+	newCar.honk = function() {
+		console.log('honk honk ' + brand);
+	};
+	return newCar;
+};
+
+
+
 exports.start = start;
 exports.upload = upload;
 exports.notfound = notfound;
 exports.show = show;
+exports.drive = drive;
