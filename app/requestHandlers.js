@@ -31,9 +31,15 @@ function upload(response, request) {
 	console.log("about to parse")
 
 	form.parse(request, function(error, fields, files) {
+		// Ver lo recibido
 		console.log("parsing done " + sys.inspect({fields: fields, files: files}));
-		var filenewpath = "./tmp/" + fields.filename
-		// files.upload.path -> /tmp/06e0df2a00eac812b4797f15e438145b
+		//Para guardar el fichero con el nombre recibido.
+		//var filenewpath = "./tmp/" + fields.filename
+	
+		filenewpath = "./tmp/test.png";
+		// Fijado para que funcione el /show/
+
+
 		// Rename file to ./tmp/test.png si existe borra el anterior y renombra.
 		fs.rename(files.upload.path, filenewpath, function (error) {
 			if (error) {
