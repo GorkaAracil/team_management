@@ -73,7 +73,9 @@ function drive(response) {
 	myCar1 = makeCar("Seat");
 	myCar2 = makeCar("Audi");
 	myCar1.honk();
+	myCar1.drive("left");
 	myCar2.honk();
+	myCar2.drive("right");
 	response.writeHead(200, {"Content-Type": "text/plain"});
 	response.write("Honked and Driven:<br/>");
 	response.end();
@@ -82,7 +84,10 @@ function drive(response) {
 var makeCar = function(brand) {
 	var newCar = {};
 	newCar.honk = function() {
-		console.log('honk honk ' + brand);
+		console.log('honk honk ... ' + brand);
+	};
+	newCar.drive = function(direction) {
+		console.log('vromm...... ' + brand + " - " + direction);
 	};
 	return newCar;
 };

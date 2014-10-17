@@ -73,7 +73,7 @@ function drive(response) {
 	myCar1 = makeCar("Seat");
 	myCar2 = makeCar("Audi");
 	myCar1.honk();
-	myCar1.honk();
+	myCar2.honk();
 	response.writeHead(200, {"Content-Type": "text/plain"});
 	response.write("Honked and Driven:<br/>");
 	response.end();
